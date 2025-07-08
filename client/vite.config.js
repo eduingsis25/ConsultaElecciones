@@ -10,7 +10,7 @@ export default defineConfig({
     proxy: {
       "/api": {
         // Suponiendo que tus endpoints de la API de Django comienzan con /api/
-        target: "http://192.168.0.101:8000", // IP y puerto de tu backend Django
+        target: "https://consultaelecciones.onrender.com/", // IP y puerto de tu backend Django
         changeOrigin: true,
         secure: false,
         // rewrite: (path) => path.replace(/^\/api/, '') // Descomenta si tus endpoints de Django no tienen /api/
