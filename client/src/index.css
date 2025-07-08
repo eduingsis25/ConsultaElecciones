@@ -1,0 +1,429 @@
+/* --- Variables CSS para fácil personalización --- */
+:root {
+    --primary-color: #007bff; /* Azul vibrante */
+    --primary-hover-color: #0056b3; /* Azul más oscuro al pasar el mouse */
+    --accent-color: #28a745; /* Verde para éxito/acentos */
+    --accent-hover-color: #218838;
+    --text-color: #333; /* Color de texto principal */
+    --light-text-color: #666; /* Color de texto secundario */
+    --background-color: #f8f9fa; /* Fondo claro */
+    --card-background: #ffffff; /* Fondo para tarjetas/formularios */
+    --border-color: #dee2e6; /* Color de bordes */
+    --input-bg-color: #f5f5f5; /* Fondo de inputs */
+    --error-color: #dc3545; /* Rojo para errores */
+
+    --font-family-base: 'Poppins', sans-serif; /* Fuente moderna */
+    --border-radius-base: 8px; /* Bordes redondeados */
+    --box-shadow-base: 0 4px 10px rgba(0, 0, 0, 0.08); /* Sombra suave */
+    --transition-speed: 0.3s; /* Velocidad de transiciones */
+}
+
+/* --- Estilos Generales y Reseteo Básico --- */
+body {
+    font-family: var(--font-family-base);
+    color: var(--text-color);
+    background-color: var(--background-color);
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+*, *::before, *::after {
+    box-sizing: inherit;
+}
+
+/* --- Contenedor Principal del Formulario --- */
+.form-container {
+    max-width: 500px; /* Ancho máximo para pantallas grandes */
+    margin: 2rem auto; /* Centrar y espacio vertical */
+    padding: 2rem;
+    background-color: var(--card-background);
+    border-radius: var(--border-radius-base);
+    box-shadow: var(--box-shadow-base);
+    transition: transform var(--transition-speed) ease-out, box-shadow var(--transition-speed) ease-out; /* Animación al cargar */
+
+    /* Animación de entrada sutil */
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInSlideUp 0.6s ease-out forwards;
+}
+
+@keyframes fadeInSlideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* En pantallas más pequeñas, ocupa casi todo el ancho */
+@media (max-width: 768px) {
+    .form-container {
+        margin: 1rem 1rem; /* Margen más pequeño en móviles */
+        padding: 1.5rem;
+    }
+}
+
+/* --- Títulos del Formulario --- */
+.form-container h1 {
+    font-size: 1.8rem; /* Tamaño de fuente responsivo */
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+    text-align: center;
+    font-weight: 600;
+}
+
+@media (max-width: 768px) {
+    .form-container h1 {
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+    }
+}
+
+/* --- Grupos de Formulario (para organizar etiquetas e inputs) --- */
+.form-group {
+    margin-bottom: 1.2rem; /* Espaciado entre grupos */
+}
+
+/* --- Etiquetas --- */
+.form-group label {
+    display: block;
+    font-size: 0.95rem;
+    color: var(--light-text-color);
+    margin-bottom: 0.5rem;
+    font-weight: 400;
+}
+
+/* --- Inputs de Texto y Selects (Estilo base) --- */
+.form-input,
+.form-select {
+    width: 100%;
+    padding: 0.8rem 1rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: var(--text-color);
+    background-color: var(--input-bg-color);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius-base);
+    transition: border-color var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+    -webkit-appearance: none; /* Elimina estilos por defecto en WebKit (selects) */
+    -moz-appearance: none;    /* Elimina estilos por defecto en Mozilla (selects) */
+    appearance: none;         /* Elimina estilos por defecto (selects) */
+}
+
+/* Efecto focus en inputs y selects */
+.form-input:focus,
+.form-select:focus {
+    border-color: var(--primary-color);
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25); /* Sombra suave para el foco */
+}
+
+/* Estilo para inputs deshabilitados */
+.form-input:disabled {
+    background-color: #e9ecef;
+    color: #495057;
+    cursor: not-allowed;
+    opacity: 0.8;
+}
+
+/* Estilo específico para selects */
+.form-select {
+    background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23333%22%20d%3D%22M287%2C184.9L146.2%2C3.1c-2.7-2.7-6.9-2.7-9.7%2C0l-140.8%2C181.8c-2.7%2C2.7-2.7%2C6.9%2C0%2C9.7l1.7%2C1.7c2.7%2C2.7%2C6.9%2C2.7%2C9.7%2C0L141.5%2C58.3c2.7-2.7%2C6.9-2.7%2C9.7%2C0l135.8%2C175.7c2.7%2C2.7%2C6.9%2C2.7%2C9.7%2C0l1.7-1.7C289.7%2C191.8%2C289.7%2C187.6%2C287%2C184.9z%22%2F%3E%3C%2Fsvg%3E'); /* Icono de flecha */
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    background-size: 0.6em auto;
+    padding-right: 2.5rem; /* Espacio para el icono */
+}
+
+
+/* --- Botones --- */
+.form-button {
+    width: 100%;
+    padding: 0.9rem 1.5rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--card-background);
+    background-color: var(--primary-color);
+    border: none;
+    border-radius: var(--border-radius-base);
+    cursor: pointer;
+    transition: background-color var(--transition-speed) ease, transform 0.15s ease;
+    margin-top: 1.5rem;
+    letter-spacing: 0.5px;
+}
+
+.form-button:hover {
+    background-color: var(--primary-hover-color);
+    transform: translateY(-2px); /* Pequeño efecto "lift" al pasar el mouse */
+    box-shadow: 0 6px 12px rgba(0, 123, 255, 0.2);
+}
+
+.form-button:active {
+    transform: translateY(0); /* Efecto "press" al hacer click */
+    box-shadow: none;
+}
+
+.form-button:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+    opacity: 0.8;
+}
+
+/* --- Mensajes de Error --- */
+.error-message {
+    color: var(--error-color);
+    font-size: 0.85rem;
+    margin-top: 0.4rem;
+    display: block; /* Para que ocupe su propia línea */
+    font-weight: 500;
+    /* Animación de entrada para errores */
+    opacity: 0;
+    transform: translateY(-5px);
+    animation: fadeInDown 0.3s ease-out forwards;
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-5px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* --- Estilos para la sección de resultados de consulta (div.consulta) --- */
+.consulta {
+    margin-top: 2rem;
+    padding: 1.5rem;
+    border-top: 1px dashed var(--border-color); /* Línea divisoria */
+    text-align: center; /* Centrar texto si es solo de info */
+}
+
+.elector-card { /* Si usas una clase específica en tu componente Elector */
+    background-color: #fcfcfc;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius-base);
+    padding: 1.5rem;
+    margin-top: 1.5rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    transition: all var(--transition-speed) ease-out;
+}
+
+.elector-card p {
+    font-size: 1rem;
+    margin-bottom: 0.7rem;
+    color: var(--text-color);
+}
+
+.elector-card strong {
+    color: var(--primary-color);
+    font-weight: 600;
+    margin-right: 0.5rem;
+}
+
+/* Animación sutil para el elector-card */
+.elector-card {
+    opacity: 0;
+    transform: translateY(10px);
+    animation: fadeInSlideUp 0.5s ease-out forwards;
+    animation-delay: 0.2s; /* Un pequeño retraso para que se vea después del formulario */
+}
+
+
+/* --- Estilos para la navegación (ya existentes, solo para contexto) --- */
+.navigation {
+    background-color: var(--primary-color);
+    padding: 0.8rem 1rem;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column; /* Cambiado a columna para el diseño móvil por defecto */
+    align-items: center; /* Centra elementos horizontalmente */
+    position: relative; /* Necesario para posicionamiento del menú hamburguesa */
+    z-index: 1000; /* Asegura que la nav esté por encima de otros elementos */
+}
+
+/* Contenedor del título y el botón de hamburguesa */
+.nav-header {
+    display: flex;
+    justify-content: space-between; /* Espacio entre título y botón */
+    align-items: center;
+    width: 100%;
+    padding: 0 1rem; /* Padding horizontal */
+    box-sizing: border-box; /* Incluye padding en el ancho */
+}
+
+.navigation h1 {
+    color: var(--card-background);
+    margin: 0;
+    font-size: 1.5rem; /* Tamaño de título para móvil */
+    font-weight: 600;
+}
+
+.nav-links {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    /* Estilos por defecto para desktop, se sobrescribirán en móvil */
+    width: auto;
+    background-color: transparent;
+    position: static;
+    transform: translateX(0);
+    transition: none;
+}
+
+.nav-links li a {
+    color: var(--card-background);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1rem;
+    padding: 0.5rem 0.8rem;
+    border-radius: 5px;
+    transition: background-color var(--transition-speed) ease, transform 0.1s ease;
+}
+
+.nav-links li a:hover {
+    background-color: var(--primary-hover-color);
+    transform: translateY(-1px);
+}
+
+.nav-links li a.active {
+    background-color: var(--accent-color);
+    font-weight: 600;
+}
+
+
+/* --- Estilos del botón de hamburguesa (solo visible en móvil) --- */
+.hamburger-menu {
+    display: none; /* Por defecto oculto en desktop */
+    flex-direction: column;
+    justify-content: space-around;
+    width: 30px;
+    height: 25px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 1001; /* Asegura que esté por encima del menú y el overlay */
+}
+
+.hamburger-menu .bar {
+    width: 100%;
+    height: 3px;
+    background-color: var(--card-background); /* Color de las barras */
+    border-radius: 5px;
+    transition: all var(--transition-speed) ease-in-out;
+}
+
+/* Animación de la hamburguesa a la 'X' */
+.hamburger-menu.open .bar:nth-child(1) {
+    transform: translateY(11px) rotate(45deg);
+}
+.hamburger-menu.open .bar:nth-child(2) {
+    opacity: 0;
+}
+.hamburger-menu.open .bar:nth-child(3) {
+    transform: translateY(-11px) rotate(-45deg);
+}
+
+/* --- Overlay del menú (para cerrar al hacer clic fuera) --- */
+.menu-overlay {
+    display: none; /* Por defecto oculto */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5); /* Sombra semitransparente */
+    z-index: 999; /* Por debajo del menú pero por encima del contenido */
+    transition: opacity var(--transition-speed) ease-in-out;
+    opacity: 0;
+}
+
+.menu-overlay.open {
+    display: block;
+    opacity: 1;
+}
+
+/* --- Media Queries para la optimización móvil --- */
+@media (max-width: 768px) { /* Se activa para pantallas de hasta 768px de ancho */
+    .navigation {
+        flex-direction: row; /* Vuelve a fila en mobile para header */
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .nav-header {
+        width: 100%; /* El header ocupa todo el ancho */
+    }
+
+    .navigation h1 {
+        font-size: 1.2rem; /* Tamaño de título más pequeño para móvil */
+    }
+
+    /* Mostrar el botón de hamburguesa en móvil */
+    .hamburger-menu {
+        display: flex;
+    }
+
+    /* Ocultar los enlaces por defecto en móvil */
+    .nav-links {
+        flex-direction: column; /* Apilar enlaces verticalmente */
+        position: fixed; /* Fija el menú lateral */
+        top: 0;
+        right: -250px; /* Inicialmente fuera de la pantalla */
+        width: 250px; /* Ancho del menú lateral */
+        height: 100vh;
+        background-color: var(--primary-color); /* Mismo color de la nav */
+        padding-top: 4rem; /* Espacio para el header de la nav */
+        box-shadow: -4px 0 10px rgba(0,0,0,0.2);
+        transition: transform var(--transition-speed) ease-in-out; /* Animación de slide */
+        z-index: 1000; /* Asegura que el menú esté por encima */
+        align-items: flex-start; /* Alinear enlaces a la izquierda */
+        justify-content: flex-start; /* Alinear enlaces al inicio */
+    }
+
+    /* Estado abierto del menú móvil */
+    .nav-links.open {
+        transform: translateX(-250px); /* Desliza el menú hacia adentro */
+    }
+
+    .nav-links li {
+        width: 100%; /* Cada elemento de la lista ocupa todo el ancho del menú */
+    }
+
+    .nav-links li a {
+        padding: 0.8rem 1.5rem; /* Más padding para los enlaces en móvil */
+        width: 100%;
+        display: block; /* Para que el padding funcione en todo el área */
+        text-align: left; /* Alinear texto a la izquierda */
+        border-radius: 0; /* Quitar redondeo en los enlaces del menú lateral */
+    }
+
+    .nav-links li a:hover {
+        background-color: var(--primary-hover-color);
+        transform: none; /* Quitar efecto lift en móvil */
+    }
+
+    .nav-links li a.active {
+        background-color: var(--accent-color);
+    }
+
+    /* Mostrar overlay cuando el menú está abierto */
+    .menu-overlay.open {
+        display: block;
+        opacity: 1;
+    }
+}
