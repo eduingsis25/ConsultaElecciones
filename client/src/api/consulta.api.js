@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export const electorApi = axios.create({
-  baseURL: "/api/",
+  baseURL: "https://consultaelecciones.onrender.com/api/",
 });
 
 electorApi.interceptors.request.use(
