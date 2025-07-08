@@ -13,6 +13,6 @@ class censo(models.Model):
     cv = models.CharField(max_length=100)
     municipio = models.CharField(max_length=50)
     parroquia = models.CharField(max_length=50)
-    secres = models.CharField(max_length=50)
+    secres = models.CharField(max_length=200)
     encargado = models.CharField(max_length=50)
     observaciones = models.TextField(max_length=500, blank=True, null=True)
