@@ -180,10 +180,92 @@ export function Censo({ elector }) {
             className="form-select"
             {...register("secres", { required: "El sector es obligatorio." })}
           >
-            <option value="Tomás Delgado">Tomás Delgado</option>
-            <option value="El Silencio">El Silencio</option>
-            <option value="Casco Central">Casco Central</option>
-            <option value="San Miguel">San Miguel</option>
+            <option value="23 DE ENERO">23 DE ENERO</option>
+            <option value="AGUACIL / CURVA EL TIGRE">
+              AGUACIL / CURVA EL TIGRE
+            </option>
+            <option value="EL QUINCE">EL QUINCE</option>
+            <option value="LA ALCABALA / SAN ISIDRO">
+              LA ALCABALA / SAN ISIDRO
+            </option>
+            <option value="EL PARAISO">EL PARAISO</option>
+            <option value="INREVI">INREVI</option>
+            <option value="NEGRA HIPÓLITA">NEGRA HIPÓLITA</option>
+            <option value="POCÓ / LA ARGENTINA">POCÓ / LA ARGENTINA </option>
+            <option value="INNAVI / CALLE LA LIBERTAD">
+              INNAVI / CALLE LA LIBERTAD
+            </option>
+            <option value="LAS MARGARITAS / LAS HEROINAS / PATRIA NUEVA">
+              LAS MARGARITAS / LAS HEROINAS / PATRIA NUEVA
+            </option>
+            <option value="LA MONTALVEÑA / LAS MORAS">
+              LA MONTALVEÑA / LAS MORAS
+            </option>
+            <option value="TOMÁS DELGADO">TOMÁS DELGADO</option>
+            <option value="MAISANTA / IVASOL">MAISANTA / IVASOL</option>
+            <option value="EL SILENCIO / ALI PRIMERA">
+              EL SILENCIO / ALI PRIMERA
+            </option>
+            <option value="VILLA PRODUCTIVA">VILLA PRODUCTIVA</option>
+            <option value="EL JABILLO / LA FORTALEZA">
+              EL JABILLO / LA FORTALEZA
+            </option>
+            <option value="5 DE JULIO / SAN MIGUEL / FUNDO ZAMORANO">
+              5 DE JULIO / SAN MIGUEL / FUNDO ZAMORANO
+            </option>
+            <option value="NICOLAZA ESPOINOZA">NICOLAZA ESPOINOZA</option>
+            <option value="CALLE LAS FLORES / CALLE ALBERTO CABRERA / RIO SECO">
+              CALLE LAS FLORES / CALLE ALBERTO CABRERA / RIO SECO
+            </option>
+            <option value="CASCO CENTRAL">CASCO CENTRAL</option>
+            <option value="CARRETERA NEGRA / BENDICION DE DIOS / MONTE SION / SENDEROS DEL SEÑOR">
+              CARRETERA NEGRA / BENDICION DE DIOS / MONTE SION / SENDEROS DEL
+              SEÑOR
+            </option>
+            <option value="CLUB COLOMBO / ZAPOTAL">
+              CLUB COLOMBO / ZAPOTAL
+            </option>
+            <option value="LA PEREZA">LA PEREZA</option>
+            <option value="LA ARENOSA / LA TIGRA">LA ARENOSA / LA TIGRA</option>
+            <option value="EL ALBARICAL / LA SALVADORA">
+              EL ALBARICAL / LA SALVADORA
+            </option>
+            <option value="LOS CARAÑOS / CARTAGENA / EL RUMBO / PUEBLO DE CRISTO">
+              LOS CARAÑOS / CARTAGENA / EL RUMBO / PUEBLO DE CRISTO
+            </option>
+            <option value="EL CERRO / POCOITO / EL PEPEO">
+              EL CERRO / POCOITO / EL PEPEO
+            </option>
+            <option value="MESA BONITA / EL 20">MESA BONITA / EL 20</option>
+            <option value="LA FLORIDA / LA CURVA">LA FLORIDA / LA CURVA</option>
+            <option value="EL FILO / LA GRANJA">EL FILO / LA GRANJA</option>
+            <option value="SAN LORENZO / EL ALTO / LA PUEBLITA / SANTA ROSA">
+              SAN LORENZO / EL ALTO / LA PUEBLITA / SANTA ROSA
+            </option>
+            <option value="EL PUEBLO / EL TENDAL / LA VENADA">
+              EL PUEBLO / EL TENDAL / LA VENADA
+            </option>
+            <option value="SAN RAFAEL / SAN PABLO / LAS MESITAS">
+              SAN RAFAEL / SAN PABLO / LAS MESITAS
+            </option>
+            <option value="LA CUCHILLA / SANTA CRUZ / EL SAI">
+              LA CUCHILLA / SANTA CRUZ / EL SAI
+            </option>
+            <option value="CAPIU / LAS ROSALES">CAPIU / LAS ROSALES</option>
+            <option value="EL BRILLANTE / VILLA DOLORES / BOSCAN / HATO BLANCO">
+              EL BRILLANTE / VILLA DOLORES / BOSCAN / HATO BLANCO
+            </option>
+            <option value="CASA AZUL / AGUACIL ZULIA">
+              CASA AZUL / AGUACIL ZULIA
+            </option>
+            <option value="EL CATORCE / SAN RAFAEL / LAS VERITAS / TATUCALES / CAÑO RICO / PUERTO RICO">
+              EL CATORCE / SAN RAFAEL / LAS VERITAS / TATUCALES / CAÑO RICO /
+              PUERTO RICO
+            </option>
+            <option value="CASA DE TABLA / VALERANA / EL PUERTO">
+              CASA DE TABLA / VALERANA / EL PUERTO
+            </option>
+            <option value="OTROS FORANEOS">OTROS FORANEOS</option>
           </select>
           {errors.secres && (
             <span className="error-message">{errors.secres.message}</span>
@@ -192,26 +274,22 @@ export function Censo({ elector }) {
 
         <div className="form-group">
           <label htmlFor="encargado">Encargado Voto:</label>
-          <select
+          <input
+            type="text"
             id="encargado"
             name="encargado"
-            className="form-select"
+            className="form-input"
             {...register("encargado", {
               required: "El encargado es obligatorio.",
             })}
-          >
-            <option value="Alcalde">Alcalde</option>
-            <option value="Carlos Peña">Carlos Peña</option>
-            <option value="Yoseiran Ledo">Yoseiran Ledo</option>
-            <option value="Carolina Gonzalez">Carolina Gonzalez</option>
-          </select>
+          />
           {errors.encargado && (
             <span className="error-message">{errors.encargado.message}</span>
           )}
         </div>
 
         <button type="submit" className="form-button">
-          Censar
+          CENSAR
         </button>
       </form>
     </div>
