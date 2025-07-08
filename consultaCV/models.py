@@ -4,8 +4,8 @@ from django.db import models
 
 
 class elector(models.Model):
-    cedula = models.IntegerField(primary_key=True)
     nacionalidad = models.CharField(max_length=10)
+    cedula = models.IntegerField(primary_key=True)
     papellido = models.CharField(max_length=50)
     sapellido = models.CharField(max_length=50)
     pnombre = models.CharField(max_length=50)
