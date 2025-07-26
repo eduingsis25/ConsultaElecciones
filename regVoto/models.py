@@ -13,7 +13,4 @@ class votante(models.Model):
     cv = models.CharField(max_length=100)
     municipio = models.CharField(max_length=50)
     parroquia = models.CharField(max_length=50)
-    secres = models.CharField(max_length=50)
-    encargado = models.CharField(max_length=50)
     voto = models.BooleanField(default=True)
-    observaciones = models.TextField(max_length=500, blank=True, null=True)
